@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url search %}"> Search </a>
+{% endblock %}
+{% block title %}
+	IC - Search
+{% endblock %}
+{% block content %}
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+            <li style="color: red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form action="/inventory/search/" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search">
+    </form>
+
+{% endblock %}

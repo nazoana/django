@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url returning %}"> Return Commodity </a>
+{% endblock %}
+{% block title %}
+	IC - Return Commodity
+{% endblock %}
+{% block content %}
+    	<div>
+    		<h2> Returning: {{ returning_tab }} </h2>
+    	</div>
+{% endblock %}

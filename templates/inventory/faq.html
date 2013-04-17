@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url faq %}"> Frequently Asked Questions </a>
+{% endblock %}
+{% block title %}
+	IC - FAQ
+{% endblock %}
+{% block content %}
+    	<div>
+    		<h2> Frequently Asked Questions</h2>
+    		<h4>Incoming</h4>
+    		<p>Incoming keeps track of any commodity that comes in to your warehouse</p>
+    		
+    		<h4>Dispatching</h4>
+    		<p>Any commodity that leaves your warehouse should be tracked in here</p>
+    	</div>
+{% endblock %}

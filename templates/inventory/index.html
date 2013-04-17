@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url index %}"> Front Page </a>
+{% endblock %}
+{% block title %}
+	IC - Home
+{% endblock %}
+{% block content %}
+    	<div>
+    		<h4 class = "hidden"> {{ hw }} Index {{ home_tab }} </h4>
+    		<h2> Inventory Summary</h2>
+    		<a href="{{ STATIC_URL }}bookstore/master.css">Style</a>
+		</div>
+{% endblock %}

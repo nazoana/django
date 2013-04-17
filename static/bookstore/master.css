@@ -1,0 +1,224 @@
+/*
+ * http://www.subcide.com/articles/creating-a-css-layout-from-scratch/P6/
+ * http://css.maxdesign.com.au/floatutorial/introduction.htm
+ * http://www.w3schools.com/cssref/tryit.asp?filename=trycss_float6
+ * The html and body tags have default margins and/or padding on nearly all browsers. 
+ * So we need to write a CSS rule to reset the margins and padding on the html and body 
+ * tags to zero. Add this rule to the very top of your css file:
+ *
+ * A comma in between CSS selectors stands for “or”, so here the rule will be applied to 
+ * the html tag or the body tag. Because both exist on the page, it will be applied to both.
+ */
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+/*
+ * we can set any element in the site to have the class “hidden”, and it won’t show. 
+ */
+.hidden {
+	display: none;
+}
+
+/* 
+ * Lets set a global font family, colour, and size to use as a nice base. The font 
+ * attributes we set on the body will automatically inherit down to any other text in the 
+ * site unless specifically overridden with another style.
+ */
+body {
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 12px;
+	color: #666666;
+	background: #7F7F7F;
+	height: 100%;
+}
+
+#content h2 {
+	margin: 0;
+	text-align: center;
+	padding: 5px;
+}
+
+#content p {
+	margin: 0;
+	padding: 0;
+	padding-bottom: 15px;
+}
+
+/* 
+ * The # in front of the id tells the browser that we are selecting an id. For a class 
+ * we would use a . instead eg: .page-container {}.
+ */
+#page-container {
+	height: 100%; /* change this to min-height: 100%; and it the footer will get pushed to bottom of page */
+	position:relative;
+	width: 90%; /* First we should set a width of 90% on this div. */
+	margin: auto; /* we want to center this div. This is done by setting the margins on it to auto. When the left and right margins are set to auto, they will even each other out and the div will sit in the center of its container. */	
+	background: #ffffff;
+}
+
+
+/*
+ * Notice we didn’t specify the width of the div. This is because by default, a div will 
+ * stretch to fill its parent container, which in this case, is our #page-container div 
+ * that was set to 90% wide.
+ */
+#main-nav {
+	height: 5px; /* Set the height of the main navigation bar to 50px high */
+	background: #B20838;
+}
+
+#main-nav ul#nav { 
+	margin: auto;
+	padding: 5px 0 5px 0; /* margin-top: 5px, margin-right: 0, margin-bottom: 5px, margin-right: 0; */
+	list-style: none; /* make it horizontal */
+}
+
+#main-nav ul#nav li { 
+	display: inline; /* to force the list into one line */
+}
+
+#main-nav ul#nav li a {
+	text-decoration:none; /* do not show underline for links */
+	padding: 5px; /* Add 5px padding all around the link */
+	background:#e9e9e9; /* #485e49; */
+	color:#069; /* #eee; */
+	text-align:center;
+	border-right:1px solid #fff; 
+	float: left;
+	width: 90px; /* Make each link 90px wide */
+}
+
+#main-nav ul#nav li a:hover {
+	background: #db6d16; /* #a2b3a1; */
+	color: #fff; / * #000; */
+}
+
+
+/*
+ * When a tab is clicked on, then highlight it
+ */
+#main-nav ul#nav li.selected a {
+	background: #db6d16;
+	color: #fff;
+}
+
+#breadcrumbs {
+	clear: left;
+	padding: 5px 0 0 15px;
+	color: #999999;
+	font-size: 11px;
+}
+
+#breadcrumbs a {
+	text-decoration: none;
+	color: #999999;
+}
+
+#breadcrumbs a:hover {
+	color: #db6d16;
+}
+
+/* 
+ * float is an element that is aligned against the left or right side of its container.
+ * http://css.maxdesign.com.au/floatutorial/introduction.htm
+ */
+#sidebar {
+	height: 85%;
+	margin: auto;
+	float: right;
+	width: 280px;
+	line-height: 18px; /* The leading (vertical space between lines of text) on the sidebar text should be larger */
+	border-left: 3px dotted #eee;
+}
+
+/*
+ * selected only the elements with a class=“padding” that are children of the #sidebar div.
+ */
+
+#sidebar .padding {
+	padding: 0 5px 1px 10px;
+}
+
+/* The height is dependant on the content that’s inside it, so I wont set a height. */
+#content {
+	margin-right: 280px; /* pushing the right edge of the content away from the right edge of the page-container that is the same width as the sidebar. */
+	line-height: 18px; /* The leading (vertical space between lines of text) on the content text should be larger */
+	padding-bottom:40px;
+	height: 85%;
+}
+/*
+ * selected only the elements with a class=“padding” that are children of the #content div.
+ */
+#content .padding {
+	padding: 10px 25px 5px 25px;
+}
+
+/*
+ * When an element has the clear property assigned and if it comes into contact with a 
+ * float then it is placed right below where that float ends. Since sidebar is a float
+ * and it may come into contact with footer if the content of sidebar is longer than 
+ * content, then we want to make sure footer is placed below the sidebar.
+ */
+#footer {
+	clear: both;
+	font-family: Tahoma, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+	color: #999999;
+	border-top: 1px solid #efefef; /* add a 1 pixel top border on the footer div */
+	padding: 0;
+	line-height: 18px;
+	background: #f2f2f2; /* #ffab62; */
+	width:100%;
+	height:40px; /* this value should match the padding-bottom value for #content */
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+/*
+ *  change the link colour (and remove the link underline):
+ */
+#footer a {
+	color: #999999;
+	text-decoration: none;
+	padding: 5px;
+}
+
+/* Add mouse over effect to links */
+#footer a:hover {
+	color: #db6d16;
+}
+
+/* 
+ * float the alternate navigation to the right. Note that floated elements must have a 
+ * width specified to work properly, so set the width to slightly larger than the nav 
+ * actually needs, and set the text alignment to right so the text sits where it should.
+ */
+#footer #altnav {
+	clear: both;
+	width: 350px;
+	float: right;
+	text-align: right;
+	padding-top: 0px;
+}
+
+#footer #copyright {
+	padding: 1px 0 0 2px;
+}
+
+ul.errorlist {
+    margin: 0;
+    padding: 0;
+}
+
+.errorlist li {
+    background-color: red;
+    color: white;
+    display: block;
+    font-size: 10px;
+    margin: 0 0 3px;
+    padding: 4px 5px;
+}

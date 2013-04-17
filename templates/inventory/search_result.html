@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>You searched for: <strong>{{ query }}</strong></p>
+
+{% if commodities %}
+    <p>Found {{ commodities|length }} commodity{{ commodities|pluralize }}.</p>
+    <ul>
+        {% for commodity in commodities %}
+        <li>{{ commodity.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No commodity matched your search criteria.</p>
+{% endif %}
+
+{% endblock %}

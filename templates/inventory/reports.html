@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url reports %}"> Reports </a>
+{% endblock %}
+{% block title %}
+	IC - Reports
+{% endblock %}
+{% block content %}
+    	<div>
+    		<h2> Reports: {{ reports_tab }} </h2>
+    	</div>
+{% endblock %}

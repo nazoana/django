@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="Inventory Control">
+	<meta name="Mahmood Khan">
+	<link href="{{ STATIC_URL}}bookstore/master.css" rel="stylesheet" type="text/css" />
+	<title>{% block title %}Inventory Control{% endblock %}</title>
+</head>
+<body>
+
+<!-- Entire Page container or wrapper -->
+<div id="page-container">
+	<!-- Navigation bar container or wrapper -->
+    <div id="main-nav">
+        <ul id="nav">
+			<li id="home" class="{{ home_tab }}"><a href="{% url index %}">HOME</a></li>
+			<li id="incoming" class="{{ incoming_tab }}"><a href="{% url incoming %}">INCOMING</a></li>
+			<li id="dispatching" class="{{ dispatching_tab }}"><a href="{% url dispatching %}">DISPATCHING</a></li>
+			<li id="returning" class="{{ returning_tab}}"><a href="{% url returning %}">RETURNING</a></li>
+			<li id="reports" class="{{ reports_tab }}"><a href="{% url reports %}">REPORTS</a></li>
+			<li id="help" class="{{ help_tab }}"><a href="{% url help %}">HELP</a></li>
+		</ul>
+    </div>
+    <!-- End of navigation bar container or wrapper -->
+    
+	<div id = "breadcrumbs">
+		{% block breadcrumbs %}<a href="{% url index %}"> Home  </a>{% endblock %}
+	</div>
+    	
+    <!-- sidebar div begins -->
+    <div id="sidebar">
+    	<div class="padding">
+    		{% block sidebar %}{% endblock %}
+    		<p> This is sidebar </p>
+    	</div>
+    </div>
+    <!-- sidebar div ends -->
+    
+    <!-- Main Content container or wrapper -->
+    <div id="content">
+    	<div class="padding">
+    		{% block content %}{% endblock %}
+    	</div>
+    </div>
+    <!-- End of Main Content container or wrapper -->
+     
+     
+    <!-- Footer container or wrapper -->
+    <div id="footer">
+    	<div id="altnav">
+			<a href="#">About</a> - 
+			<a href="#">Support</a> - 
+			<a href="{% url faq %}">FAQ</a> - 
+			<a href="{% url contactus %}">Contact Us</a> - 
+			<a href="#">Terms of Use</a>
+		</div>
+		<div id="copyright">
+			Copyright © Mercy Corps 2013<br />
+			Powered by <a href="https://www.djangoproject.com/">Django</a>
+		</div>
+    </div>
+	<!-- End of Footer container or wrapper -->
+	
+</div>
+<!-- End of page container or wrapper -->
+</body>
+</html>

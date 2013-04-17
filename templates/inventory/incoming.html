@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+    {{ block.super }} » <a href="{% url incoming %}"> Receive Commodity </a>
+{% endblock %}
+{% block title %}
+	IC - Receive Commodity
+{% endblock %}
+{% block content %}
+    	<div>
+    		<h2> Incoming: {{ incoming_tab }} </h2>
+    	</div>
+{% endblock %}

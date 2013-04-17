@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block breadcrumbs %}
+	{{ block.super }} » <a href="{% url dispatching %}"> Dispatch Commodity </a>
+{% endblock %}
+{% block title %}
+	IC - Dispatch Commodity
+{% endblock %}
+{% block content %}
+    	<div>
+    		<h2>Dispatching: {{ dispatching_tab }} </h2>
+    	</div>
+{% endblock %}
